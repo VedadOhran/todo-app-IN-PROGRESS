@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root{
+  --background-color: hsl(235, 21%, 11%);
+  --text-color:hsl(0, 0%, 98%);
+  --form-background:hsl(235, 24%, 19%);
+  --second-text-color:hsl(235, 19%, 35%);
+  --h1:hsl(240, 11%, 9%);
+}
+
+.light-theme{
+    transition:all ease-out 0.9s;
+  --background-color: hsl(236, 33%, 92%);
+  --text-color:hsl(235, 21%, 11%);
+  --form-background:hsl(0, 0%, 98%);
+  --second-text-color:hsl(235, 19%, 35%);
+  --h1:hsl(0, 0%, 98%);
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: 'Josefin Sans', sans-serif;
+  transition: all ease-out 0.9s;
+}
+
+h1{
+  letter-spacing: 0.7rem;
+  color: var(--h1);
+  font-size: 3rem;
+}
+
+.hero-section {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  background-image: url('./images/bg-desktop-light.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 350px;
+}
+
+.banner-theme {
+  background-image: url('./images/bg-desktop-dark.jpg');
+}
+
+.title-and-theme {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  gap: 15rem;
+}
+
+.title-and-theme img {
+  cursor: pointer;
+}
+
+.todo-form {
+  display: flex;
+  flex-direction: column;
+  gap:2rem;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  margin-top: -7rem;
+}
+
+.todo-form label {
+  display: flex;
+  min-width: 100%;
+}
+
+.todo-form label input {
+  background-color: var(--form-background);
+  color: var(--text-color);
+  padding: 1.5rem 1.15rem;
+  outline: none;
+  border-radius: 2px;
+  border: none;
+  width: 100%;
+}
+
+.todo-form input::placeholder {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.todo-list {
+  background-color: var(--form-background);
+  border-radius: 2px;
+  width: 100%;
+}
+
+.todo-list ul li {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-color);
+  padding: 1.1rem 1.15rem;
+  cursor: move;
+}
+
+
+.todo-list ul li img {
+  cursor: pointer;
+}
+
+.todo-list ul li img:first-child{
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 50%;
+  padding: 0.4rem;
+  max-height: 12px;
+  max-width: 12px;
+  width: 100%;
+  height: auto;
+}
+
+.todo-list ul li img:last-child:hover{
+  height: 15px;
+}
+
+.todo-list ul li img.active{
+background: hsl(220, 98%, 61%);
+}
+
+.todo-item {
+  border-bottom: 1px solid var(--second-text-color);
+}
+
+
+.todo-item.dragging {
+  transform: scale(1.3);
+}
+
+.todo-item.active {
+  transition: all 0.9s;
+  text-decoration: line-through;
+  color: var(--second-text-color);
+}
+
+.check-btn{
+  filter: invert(76%) sepia(8%) saturate(1993%) hue-rotate(181deg) brightness(97%) contrast(98%);
+}
+
+.state {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: .3rem;
+}
+
+.state-inner {
+  display: flex;
+  gap: 1rem;
+}
+
+.state p {
+  color: var(--second-text-color);
+  font-size: .9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.state p:hover{
+  transition: all ease-in 0.2s;
+  color: hsl(210, 83%, 43%);
+}
+.state-p.checked {
+  color: hsl(210, 83%, 43%);
+}
+.items-left {
+  color: var(--second-text-color)!important;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 1rem;
+}
+
+.default-message {
+  color: var(--text-color);
+  font-size: 1.4rem;
+  text-align: center;
+  font-weight: 700;
+  padding-top: 2rem;
+}
+
+.footer{
+  color: var(--second-text-color);
+  text-align: center;
+  padding: 5rem;
+}
+
+.state-inner-js {
+  display: none;
+}
+
+@media(max-width:768px){
+  h1{
+    font-size: 2rem;
+  }
+  .todo-form{
+    width: 450px;
+  }
+  .todo-form label input{
+    padding: 1.2rem;
+  }
+  .todo-list ul li {
+    padding: 1rem;
+  }
+  .state-inner{
+    display: none;
+  }
+  .state-inner-js{
+    background-color: var(--form-background);
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    align-items: center;
+    padding: 1rem;
+    
+  }
+  .state-inner-js p {
+    color: var(--second-text-color);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
+  .state-inner-js p:hover{
+    transition: all ease-in 0.2s;
+    color: hsl(210, 83%, 43%);
+  }
+  .state-inner-js p.checked {
+    color: hsl(210, 83%, 43%);
+  }
+}
+
+@media(max-width:500px){
+  .title-and-theme{
+    gap:2rem;
+  }
+  .todo-form{
+    width: 340px;
+  }
+  .default-message{
+    font-size: 1rem;
+  }
+}
